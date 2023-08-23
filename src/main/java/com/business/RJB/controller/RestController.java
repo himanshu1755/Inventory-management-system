@@ -30,8 +30,15 @@ public class RestController {
     }
 
     @PostMapping(value = "/addMerchant", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> addAppConfig(@RequestBody String merchantData) {
+    public ResponseEntity<Object> addMerchant(@RequestBody String merchantData) {
         log.info("merchantData --- {}", merchantData);
+//        Response response = adminService.addAppConfigData(appConfig);
+        return ResponseEntity.accepted().body("");
+
+    }
+    @PostMapping(value = "/addProduct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Object> addProduct(@RequestBody String productData) {
+        log.info("productData --- {}", productData);
 //        Response response = adminService.addAppConfigData(appConfig);
         return ResponseEntity.accepted().body("");
 
