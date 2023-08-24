@@ -1,5 +1,8 @@
 package com.business.RJB.controller;
 
+import com.business.RJB.model.Merchants;
+import com.business.RJB.model.PaymentHistory;
+import com.business.RJB.model.Products;
 import lombok.CustomLog;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,7 +33,7 @@ public class RestController {
     }
 
     @PostMapping(value = "/addMerchant", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> addMerchant(@RequestBody String merchantData) {
+    public ResponseEntity<Object> addMerchant(@RequestBody Merchants merchantData) {
         log.info("merchantData --- {}", merchantData);
 //        Response response = adminService.addAppConfigData(appConfig);
         return ResponseEntity.accepted().body("");
@@ -38,8 +41,15 @@ public class RestController {
     }
 
     @PostMapping(value = "/addProduct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> addProduct(@RequestBody String productData) {
+    public ResponseEntity<Object> addProduct(@RequestBody Products productData) {
         log.info("productData --- {}", productData);
+//        Response response = adminService.addAppConfigData(appConfig);
+        return ResponseEntity.accepted().body("");
+
+    }
+    @PostMapping(value = "/addPayment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Object> addProduct(@RequestBody PaymentHistory paymentData) {
+        log.info("paymentData --- {}", paymentData);
 //        Response response = adminService.addAppConfigData(appConfig);
         return ResponseEntity.accepted().body("");
 
