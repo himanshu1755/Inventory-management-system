@@ -23,8 +23,8 @@
                 </Pattern>
             </PatternLayout>
         </Console>
-        <RollingFile name="ALL_LEVELS" fileName="${baseDir}/smcloud.log"
-                     filePattern="${baseDir}/smcloud_%d{dd_MM_yyyy}_%i.log">
+        <RollingFile name="ALL_LEVELS" fileName="${baseDir}/rjb.log"
+                     filePattern="${baseDir}/rjb_%d{dd_MM_yyyy}_%i.log">
             <LevelRangeFilter minLevel="ERROR" maxLevel="TRACE" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout>
                 <Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %highlight{%-5p [%t] %C{1}.%M:%L : }{ERROR=red, FATAL=Bright red
@@ -38,14 +38,14 @@
             </Policies>
             <DefaultRolloverStrategy  max="10" fileIndex="nomax">
                 <Delete basePath="${baseDir}" maxDepth="1">
-                    <IfFileName glob="smcloud_*.log*" />
+                    <IfFileName glob="rjb_*.log*" />
                     <IfLastModified age="${delete_lastmodified}" >
                     </IfLastModified>
                 </Delete>
             </DefaultRolloverStrategy>
         </RollingFile>
         <RollingFile name="ERROR_LOG" fileName="${baseDirError}/error.log"
-                     filePattern="${baseDirError}/smcloud-error_%d{dd-MM-yyyy}_%i.log">
+                     filePattern="${baseDirError}/rjb-error_%d{dd-MM-yyyy}_%i.log">
             <LevelRangeFilter minLevel="FATAL" maxLevel="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout>
                 <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %highlight{%-5level [%t] %C{1}.%M:%L -}{ERROR=red, FATAL=red blink, WARN=yellow} %msg%n%throwable</pattern>
@@ -56,7 +56,7 @@
             </Policies>
             <DefaultRolloverStrategy max="10" fileIndex="nomax">
                 <Delete basePath="${baseDirError}" maxDepth="1">
-                    <IfFileName glob="smcloud-error_*.log" />
+                    <IfFileName glob="rjb-error_*.log" />
                     <IfLastModified age="${delete_lastmodified}" >
                     </IfLastModified>
                 </Delete>
@@ -86,55 +86,13 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <AsyncLogger name="com.avis.utility" level="WARN" additivity="false" includeLocation="true">
-            <AppenderRef ref="OUT"/>
 
-        </AsyncLogger>
-        <AsyncLogger name="com.avis" level="TRACE" additivity="false" includeLocation="true">
+        <AsyncLogger name="com.business.RJB" level="INFO" additivity="false" includeLocation="true">
             <AppenderRef ref="ALL_LEVELS"/>
             <AppenderRef ref="CONSOLE"/>
             <AppenderRef ref="ERROR_LOG"/>
         </AsyncLogger>
-        <AsyncLogger name="com.avis.bean" level="TRACE" additivity="false" includeLocation="true">
-            <AppenderRef ref="ALL_LEVELS"/>
-            <AppenderRef ref="CONSOLE"/>
-            <AppenderRef ref="ERROR_LOG"/>
-        </AsyncLogger>
-        <AsyncLogger name="com.avis.controller" level="TRACE" additivity="false" includeLocation="true">
-            <AppenderRef ref="ALL_LEVELS"/>
-            <AppenderRef ref="CONSOLE"/>
-            <AppenderRef ref="ERROR_LOG"/>
-        </AsyncLogger>
-        <AsyncLogger name="com.avis.model" level="TRACE" additivity="false" includeLocation="true">
-            <AppenderRef ref="ALL_LEVELS"/>
-            <AppenderRef ref="CONSOLE"/>
-            <AppenderRef ref="ERROR_LOG"/>
-        </AsyncLogger>
-        <AsyncLogger name="com.avis.repository" level="TRACE" additivity="false" includeLocation="true">
-            <AppenderRef ref="ALL_LEVELS"/>
-            <AppenderRef ref="CONSOLE"/>
-            <AppenderRef ref="ERROR_LOG"/>
-        </AsyncLogger>
-        <AsyncLogger name="com.avis.security" level="TRACE" additivity="false" includeLocation="true">
-            <AppenderRef ref="ALL_LEVELS"/>
-            <AppenderRef ref="CONSOLE"/>
-            <AppenderRef ref="ERROR_LOG"/>
-        </AsyncLogger>
-        <AsyncLogger name="com.avis.service" level="TRACE" additivity="false" includeLocation="true">
-            <AppenderRef ref="ALL_LEVELS"/>
-            <AppenderRef ref="CONSOLE"/>
-            <AppenderRef ref="ERROR_LOG"/>
-        </AsyncLogger>
-        <AsyncLogger name="com.avis.util" level="TRACE" additivity="false" includeLocation="true">
-            <AppenderRef ref="ALL_LEVELS"/>
-            <AppenderRef ref="CONSOLE"/>
-            <AppenderRef ref="ERROR_LOG"/>
-        </AsyncLogger>
-        <AsyncLogger name="com.avis.web.request.handler" level="TRACE" additivity="false" includeLocation="true">
-            <AppenderRef ref="ALL_LEVELS"/>
-            <AppenderRef ref="CONSOLE"/>
-            <AppenderRef ref="ERROR_LOG"/>
-        </AsyncLogger>
+
         
         <Root level="INFO" additivity="false">
             <AppenderRef ref="ALL_LEVELS"/>

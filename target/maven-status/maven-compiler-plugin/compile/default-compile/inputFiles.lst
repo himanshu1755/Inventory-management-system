@@ -1,5 +1,12 @@
+/Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/model/Merchants.java
 /Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/controller/RestController.java
+/Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/model/Payment.java
+/Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/repository/IProductRepository.java
 /Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/ExtLogger.java
 /Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/RjbApplication.java
-/Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/model/Merchant.java
+/Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/model/Purchase.java
+/Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/model/Products.java
+/Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/model/Users.java
+/Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/repository/IMerchantRepository.java
 /Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/config/WebConfig.java
+/Users/himanshuverma/Desktop/RJB/Inventory-management-system/src/main/java/com/business/RJB/service/AdminService.java

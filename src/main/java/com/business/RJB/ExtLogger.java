@@ -16,9 +16,7 @@ import org.apache.logging.log4j.spi.ExtendedLoggerWrapper;
 import org.apache.logging.log4j.util.MessageSupplier;
 import org.apache.logging.log4j.util.Supplier;
 
-/**
- * @author avistech
- */
+
 public final class ExtLogger extends ExtendedLoggerWrapper {
     private static final long serialVersionUID = 23539927704444L;
     private static final String FQCN = ExtLogger.class.getName();

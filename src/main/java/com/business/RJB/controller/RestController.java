@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @CrossOrigin
 @Controller
-@CustomLog
+//@CustomLog
 public class RestController {
 
 
@@ -29,12 +29,12 @@ public class RestController {
     @GetMapping("/login")
     public String page(Model model) throws Exception {
         System.out.println("hi");
-        return "login/index";
+        return "../polluxui/template/index";
     }
 
     @PostMapping(value = "/addMerchant", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> addMerchant(@RequestBody Merchants merchantData) {
-        log.info("merchantData --- {}", merchantData);
+//        log.info("merchantData --- {}", merchantData);
 //        Response response = adminService.addAppConfigData(appConfig);
         return ResponseEntity.accepted().body("");
 
@@ -42,7 +42,7 @@ public class RestController {
 
     @PostMapping(value = "/addProduct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> addProduct(@RequestBody Products productData) {
-        log.info("productData --- {}", productData);
+//        log.info("productData --- {}", productData);
 //        Response response = adminService.addAppConfigData(appConfig);
         return ResponseEntity.accepted().body("");
 
@@ -50,7 +50,7 @@ public class RestController {
 
     @PostMapping(value = "/addPayment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> addProduct(@RequestBody Payment paymentData) {
-        log.info("paymentData --- {}", paymentData);
+//        log.info("paymentData --- {}", paymentData);
 //        Response response = adminService.addAppConfigData(appConfig);
         return ResponseEntity.accepted().body("");
 
