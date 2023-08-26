@@ -29,7 +29,7 @@ public class RestController {
     @GetMapping("/login")
     public String page(Model model) throws Exception {
         System.out.println("hi");
-        return "../polluxui/template/index";
+        return "index";
     }
 
     @PostMapping(value = "/addMerchant", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
