@@ -31,6 +31,34 @@ public class RestController {
         System.out.println("hi");
         return "index";
     }
+    @GetMapping("addProduct")
+    public String productPage(Model model) throws Exception {
+        System.out.println("hi");
+        return "../static/pages/products/product";
+    }
+
+    @GetMapping("/getProduct")
+    public String productListPage(Model model) throws Exception {
+        System.out.println("hi");
+        return "../static/pages/products/product-list";
+    }
+
+    @GetMapping("/getMerchant")
+    public String merchantListPage(Model model) throws Exception {
+        System.out.println("hi");
+        return "../static/pages/merchant/merchant-list";
+    }
+
+    @GetMapping("/addMerchant")
+    public String addMerchant(Model model) throws Exception {
+        System.out.println("hi");
+        return "../static/pages/merchant/merchant";
+    }
+    @GetMapping("/makePayment")
+    public String addPayment(Model model) throws Exception {
+        System.out.println("hi");
+        return "../static/pages/merchant/make-payment";
+    }
 
     @PostMapping(value = "/addMerchant", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> addMerchant(@RequestBody Merchants merchantData) {
@@ -42,6 +70,8 @@ public class RestController {
 
     @PostMapping(value = "/addProduct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> addProduct(@RequestBody Products productData) {
+        System.out.println("add product");
+
 //        log.info("productData --- {}", productData);
 //        Response response = adminService.addAppConfigData(appConfig);
         return ResponseEntity.accepted().body("");
