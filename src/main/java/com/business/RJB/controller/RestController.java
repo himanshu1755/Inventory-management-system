@@ -3,14 +3,12 @@ package com.business.RJB.controller;
 import com.business.RJB.model.Merchants;
 import com.business.RJB.model.Payment;
 import com.business.RJB.model.Products;
-import com.business.RJB.repository.IProductRepository;
 import com.business.RJB.service.MerchantService;
 import com.business.RJB.service.PaymentService;
 import com.business.RJB.service.ProductService;
-import lombok.CustomLog;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +30,9 @@ public class RestController {
     @Autowired
     private PaymentService paymentService;
 
+    @Autowired
+    private Gson gson;
+
     @GetMapping(value = "/test")
     public ResponseEntity<Object> test() {
 
@@ -43,6 +44,7 @@ public class RestController {
         System.out.println("hi");
         return "index";
     }
+
     @GetMapping("addProduct")
     public String productPage(Model model) throws Exception {
         System.out.println("hi");
@@ -66,38 +68,49 @@ public class RestController {
         System.out.println("hi");
         return "../static/pages/merchant/merchant";
     }
+
     @GetMapping("/makePayment")
     public String addPayment(Model model) throws Exception {
         System.out.println("hi");
         return "../static/pages/merchant/make-payment";
     }
 
-    @PostMapping(value = "/addMerchant", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> addMerchant(@RequestBody Merchants merchantData) {
+    @PostMapping(value = "/addMerchant")
+    public ResponseEntity<Object> addMerchant(@RequestBody String merchantData) {
+        System.out.println("add merchant");
+        System.out.println(merchantData);
+        Merchants data = gson.fromJson(merchantData, Merchants.class);
+        System.out.println(data);
 
-        merchantService.addMerchant(merchantData);
-//        log.info("merchantData --- {}", merchantData);
-//        Response response = adminService.addAppConfigData(appConfig);
+        merchantService.addMerchant(data);
+
         return ResponseEntity.accepted().body("");
 
     }
 
-    @PostMapping(value = "/addProduct", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> addProduct(@RequestBody Products productData) {
+    @PostMapping(value = "/addProduct")
+    public ResponseEntity<Object> addProduct(@RequestBody String productData) {
         System.out.println("add product");
-        productService.saveProduct(productData);
+        Products data = gson.fromJson(productData, Products.class);
+        data.setProductCode(String.valueOf(System.currentTimeMillis()));
 
-//        log.info("productData --- {}", productData);
-//        Response response = adminService.addAppConfigData(appConfig);
-        return ResponseEntity.accepted().body("");
+        System.out.println(productData);
+        System.out.println(data);
+        productService.saveProduct(data);
+        return ResponseEntity.accepted().body("SUCCESS");
 
     }
 
-    @PostMapping(value = "/addPayment", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> addPayment(@RequestBody Payment paymentData) {
-        paymentService.savePayment(paymentData);
-//        log.info("paymentData --- {}", paymentData);
-//        Response response = adminService.addAppConfigData(appConfig);
+    @PostMapping(value = "/addPayment")
+    public ResponseEntity<Object> addPayment(@RequestBody String paymentData) {
+        System.out.println("add payment");
+        System.out.println(paymentData);
+        Payment data = gson.fromJson(paymentData, Payment.class);
+        data.setMerchantId(System.currentTimeMillis());
+        System.out.println(data);
+
+        paymentService.savePayment(data);
+
         return ResponseEntity.accepted().body("");
 
     }

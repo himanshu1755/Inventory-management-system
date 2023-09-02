@@ -1,8 +1,10 @@
 package com.business.RJB.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "USERS")
 public class Users {
     @Id

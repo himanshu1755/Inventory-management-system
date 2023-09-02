@@ -422,15 +422,15 @@
                                 </p>
                                 <form class="forms-sample">
                                     <div class="form-group">
-                                        <label for="exampleSelectGender">Merchant Name</label>
-                                        <select class="form-control col-sm-6" id="exampleSelectGender">
+                                        <label for="merchant_name">Merchant Name</label>
+                                        <select class="form-control col-sm-6" id="merchant_name">
                                             <option>Ram</option>
                                             <option>Shyam</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail3">Bill No</label>
-                                        <input type="email" class="form-control col-sm-6" id="exampleInputEmail3"
+                                        <label for="bill_no">Bill No</label>
+                                        <input type="email" class="form-control col-sm-6" id="bill_no"
                                                placeholder="Email">
                                     </div>
                                     <div class="form-group">
@@ -439,7 +439,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text bg-primary text-white">Rs</span>
                                             </div>
-                                            <input type="text" class="form-control col-sm-6" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" id="total_amount" class="form-control col-sm-6" aria-label="Amount (to the nearest dollar)">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">.00</span>
                                             </div>
@@ -453,7 +453,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text bg-primary text-white">Rs</span>
                                             </div>
-                                            <input type="text" class="form-control col-sm-6" aria-label="Amount (to the nearest dollar)">
+                                            <input type="text" id="amount_paid" class="form-control col-sm-6" aria-label="Amount (to the nearest dollar)">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">.00</span>
                                             </div>
@@ -465,7 +465,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text bg-primary text-white">Rs</span>
                                                 </div>
-                                                <input type="text" class="form-control col-sm-6" aria-label="Amount (to the nearest dollar)">
+                                                <input type="text" id="amount_unpaid" class="form-control col-sm-6" aria-label="Amount (to the nearest dollar)">
                                                 <div class="input-group-append">
                                                     <span class="input-group-text">.00</span>
                                                 </div>
@@ -475,11 +475,21 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 col-form-label">Date</label>
                                                 <div class="col-sm-9">
-                                                    <input class="form-control col-sm-6" placeholder="dd/mm/yyyy"/>
+                                                    <input class="form-control col-sm-6" id="date" placeholder="dd/mm/yyyy"/>
                                                 </div>
                                             </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 col-form-label">Payment Method</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="payment_method">
+                                                    <option>Cash</option>
+                                                    <option>Bank</option>
+                                                    <option>UPI</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                    <button onclick="addPay()" class="btn btn-primary mr-2" id="submitPayment">Submit</button>
                                     <button class="btn btn-light">Cancel</button>
                                 </form>
 
@@ -528,6 +538,9 @@
 <script src="/js/file-upload.js"></script>
 <script src="/js/typeahead.js"></script>
 <script src="/js/select2.js"></script>
+<script src="/js/ajax-req-res.js"></script>
+<script src="/js/ace.js"></script>
+<script src="/js/jquery-core.js"></script>
 <!-- End custom js for this page-->
 </body>
 

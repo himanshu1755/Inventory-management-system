@@ -1,8 +1,11 @@
 package com.business.RJB.model;
 
+import com.google.gson.annotations.SerializedName;
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "PRODUCTS")
 public class Products {
 
@@ -14,10 +17,13 @@ public class Products {
     private String productCode;
     @Column(name = "name")
     private String name;
-    @Column(name = "qualtity")
-    private Long qualtity;
+    @Column(name = "type")
+    private String type;
+    @Column(name = "quantity")
+    private Long quantity;
     @Column(name = "price")
     private Long price;
+    @SerializedName(value = "alert_enabled")
     @Column(name = "alert_enabled")
-    private Boolean alertEnabled;
+    private String alertEnabled;
 }

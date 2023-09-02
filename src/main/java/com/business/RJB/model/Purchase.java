@@ -1,10 +1,12 @@
 package com.business.RJB.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "PURCHASE")
 public class Purchase {
 
